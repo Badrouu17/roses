@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* container */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 68.75em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #655a56;
+  //   background-image: linear-gradient(to right bottom, #cf0a21, #e25364);
+  //   background-image: linear-gradient(to right bottom, #d31027, #ea384d);
+  //   background-image: linear-gradient(to right bottom, #f6505d, #c61b37);
+  background-image: linear-gradient(to right bottom, #c61b37, #f6505d);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 2 * 4vw);
+}
+
+.conta {
+  max-width: 120rem;
+  margin: 4vw auto;
+  background-color: #f2f2f2;
+  border: solid #f2f2f2 6px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+  display: grid;
+  //   grid-template-rows: 10rem minmax(43rem, auto);
+  grid-template-rows: 53rem;
+  grid-template-columns: 2.1fr 2.1fr;
+  grid-template-areas: "v1 v2";
+  @media only screen and (max-width: 68.75em) {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+.one {
+}
+
+.two {
+  background-image: url(./img/roses_bg3.jpg);
+  background-size: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Lobster", cursive;
+  color: #f2f2f2;
+  font-weight: 500;
+}

@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <div className="app conta">
+        <div className="one"></div>
+        <div className="two">
+          <h3 style={{ fontSize: 110 }}>Roses for life.</h3>
+          <br />
+          <p style={{ fontSize: 30 }}>
+            the worlds symbol of love ❤ share them.
+          </p>
+        </div>
+      </div>
+    </React.Fragment>
   );
 }
 
