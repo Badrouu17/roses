@@ -42,8 +42,8 @@ body {
   min-height: calc(100vh - 2 * 4vw);
 }
 
-.conta {
-  max-width: 120rem;
+.conta-wide {
+  max-width: 100rem;
   margin: 4vw auto;
   background-color: #fff;
   border: solid #fff 6px;
@@ -53,8 +53,8 @@ body {
   display: grid;
   //   grid-template-rows: 10rem minmax(43rem, auto);
   grid-template-rows: 53rem;
-  grid-template-columns: 2.1fr 2.1fr;
-  grid-template-areas: "v1 v2";
+  grid-template-columns: 4.2fr;
+  grid-template-areas: "v1";
   @media only screen and (max-width: 68.75em) {
     width: 100%;
     margin: 0;
@@ -62,12 +62,32 @@ body {
   }
 }
 
-.one {
+.conta-small {
+  max-width: 60rem;
+  margin: 4vw auto;
+  background-color: #fff;
+  border: solid #fff 6px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+  display: grid;
+  //   grid-template-rows: 10rem minmax(43rem, auto);
+  grid-template-rows: 53rem;
+  grid-template-columns: 4.2fr;
+  grid-template-areas: "v1";
+  @media only screen and (max-width: 68.75em) {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+.bg-sp {
   background-image: url(./img/stripes-light.png);
   background-repeat: repeat;
 }
 
-.two {
+.home {
   background-image: url(./img/roses_bg3.jpg);
   background-size: 100%;
   text-align: center;
@@ -75,7 +95,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Lobster", cursive;
   color: #f2f2f2;
   font-weight: 500;
 }

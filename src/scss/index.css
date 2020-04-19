@@ -41,8 +41,8 @@ body {
   min-height: calc(100vh - 2 * 4vw);
 }
 
-.conta {
-  max-width: 120rem;
+.conta-wide {
+  max-width: 100rem;
   margin: 4vw auto;
   background-color: #fff;
   border: solid #fff 6px;
@@ -54,25 +54,51 @@ body {
   display: grid;
   -ms-grid-rows: 53rem;
       grid-template-rows: 53rem;
-  -ms-grid-columns: 2.1fr 2.1fr;
-      grid-template-columns: 2.1fr 2.1fr;
-      grid-template-areas: "v1 v2";
+  -ms-grid-columns: 4.2fr;
+      grid-template-columns: 4.2fr;
+      grid-template-areas: "v1";
 }
 
 @media only screen and (max-width: 68.75em) {
-  .conta {
+  .conta-wide {
     width: 100%;
     margin: 0;
     border-radius: 0;
   }
 }
 
-.one {
+.conta-small {
+  max-width: 60rem;
+  margin: 4vw auto;
+  background-color: #fff;
+  border: solid #fff 6px;
+  border-radius: 6px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+          box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 53rem;
+      grid-template-rows: 53rem;
+  -ms-grid-columns: 4.2fr;
+      grid-template-columns: 4.2fr;
+      grid-template-areas: "v1";
+}
+
+@media only screen and (max-width: 68.75em) {
+  .conta-small {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+.bg-sp {
   background-image: url(./img/stripes-light.png);
   background-repeat: repeat;
 }
 
-.two {
+.home {
   background-image: url(./img/roses_bg3.jpg);
   background-size: 100%;
   text-align: center;
@@ -89,7 +115,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: "Lobster", cursive;
   color: #f2f2f2;
   font-weight: 500;
 }
