@@ -45,8 +45,8 @@ body {
 .conta {
   max-width: 120rem;
   margin: 4vw auto;
-  background-color: #f2f2f2;
-  border: solid #f2f2f2 6px;
+  background-color: #fff;
+  border: solid #fff 6px;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
@@ -63,6 +63,8 @@ body {
 }
 
 .one {
+  background-image: url(./img/stripes-light.png);
+  background-repeat: repeat;
 }
 
 .two {
@@ -76,4 +78,8 @@ body {
   font-family: "Lobster", cursive;
   color: #f2f2f2;
   font-weight: 500;
+}
+
+.lobster-font {
+  font-family: "Lobster", cursive;
 }
