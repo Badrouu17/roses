@@ -5,11 +5,16 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (
     <React.Fragment>
       <Switch>
+        <Route
+          path="/signup"
+          render={(props) => <Signup {...props}></Signup>}
+        ></Route>
         <Route
           path="/login"
           render={(props) => <Login {...props}></Login>}
@@ -23,8 +28,8 @@ function App() {
           render={(props) => <ResetPassword {...props}></ResetPassword>}
         ></Route>
         <Route
-          path="/signup"
-          render={(props) => <Signup {...props}></Signup>}
+          path="/dashboard"
+          render={(props) => <Dashboard {...props}></Dashboard>}
         ></Route>
         <Route path="/" render={(props) => <Home {...props}></Home>}></Route>
       </Switch>

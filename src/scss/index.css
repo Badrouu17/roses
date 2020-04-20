@@ -45,18 +45,17 @@ body {
   max-width: 100rem;
   margin: 4vw auto;
   background-color: #fff;
-  border: solid #fff 6px;
   border-radius: 6px;
   overflow: hidden;
   -webkit-box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
           box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 53rem;
-      grid-template-rows: 53rem;
+  -ms-grid-rows: 6rem 39rem 8rem;
+      grid-template-rows: 6rem 39rem 8rem;
   -ms-grid-columns: 4.2fr;
       grid-template-columns: 4.2fr;
-      grid-template-areas: "v1";
+      grid-template-areas: "head" "content" "footer";
 }
 
 @media only screen and (max-width: 68.75em) {
@@ -98,6 +97,10 @@ body {
   background-repeat: repeat;
 }
 
+.lobster-font {
+  font-family: "Lobster", cursive;
+}
+
 .home {
   background-image: url(./img/roses_bg3.jpg);
   background-size: 100%;
@@ -117,9 +120,5 @@ body {
           flex-direction: column;
   color: #f2f2f2;
   font-weight: 500;
-}
-
-.lobster-font {
-  font-family: "Lobster", cursive;
 }
 /*# sourceMappingURL=index.css.map */
