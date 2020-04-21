@@ -28,8 +28,16 @@ function App() {
           render={(props) => <ResetPassword {...props}></ResetPassword>}
         ></Route>
         <Route
-          path="/dashboard"
+          path="/dashboard/feed"
           render={(props) => <Dashboard {...props}></Dashboard>}
+        ></Route>
+        <Route
+          path="/dashboard/profile"
+          render={(props) => <Dashboard profile={true} {...props}></Dashboard>}
+        ></Route>
+        <Route
+          path="/dashboard/previous"
+          render={(props) => <Dashboard previous={true} {...props}></Dashboard>}
         ></Route>
         <Route path="/" render={(props) => <Home {...props}></Home>}></Route>
       </Switch>

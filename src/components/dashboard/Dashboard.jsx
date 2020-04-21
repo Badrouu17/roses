@@ -1,14 +1,25 @@
 import React from "react";
 import ContainerWide from "./../ContainerWide";
 import Header from "./Header";
-import Content from "./Content";
 import Footer from "./Footer";
+import Profile from "./Profile";
+import Feed from "./Feed";
+import Previous from "./Previous";
 
-const Dashboard = () => {
+const Dashboard = ({ profile, previous }) => {
+  const content = () => {
+    if (profile) {
+      return <Profile></Profile>;
+    } else if (previous) {
+      return <Previous></Previous>;
+    }
+    return <Feed></Feed>;
+  };
+
   return (
     <ContainerWide>
       <Header></Header>
-      <Content></Content>
+      {content()}
       <Footer></Footer>
     </ContainerWide>
   );
