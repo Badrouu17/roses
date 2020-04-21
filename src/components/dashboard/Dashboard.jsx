@@ -3,7 +3,7 @@ import ContainerWide from "./../ContainerWide";
 import Header from "./Header";
 import Footer from "./Footer";
 import Profile from "./Profile";
-import Feed from "./Feed";
+import Feed from "./feed/Feed";
 import Previous from "./Previous";
 
 const Dashboard = ({ profile, previous }) => {
