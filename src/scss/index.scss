@@ -487,7 +487,7 @@ body {
 //feed
 
 .feed::-webkit-scrollbar {
-  background-color: #fff;
+  background-color: #f7f7f7;
   height: 0.3em;
 }
 
@@ -496,8 +496,8 @@ body {
 }
 
 .feed::-webkit-scrollbar-thumb {
-  background-color: #fff;
-  outline: 1px solid #f7f7f7;
+  background-color: #f7f7f7;
+  outline: 1px solid #fff;
 }
 
 .feed {

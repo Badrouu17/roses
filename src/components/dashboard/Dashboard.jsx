@@ -6,13 +6,20 @@ import Profile from "./Profile";
 import Feed from "./feed/Feed";
 import Previous from "./Previous";
 
-const Dashboard = ({ profile, previous }) => {
+const Dashboard = ({ profile, previous, qnt, mapper, pay }) => {
   const content = () => {
     if (profile) {
       return <Profile></Profile>;
     } else if (previous) {
       return <Previous></Previous>;
+    } else if (qnt) {
+      return <Feed qnt></Feed>;
+    } else if (mapper) {
+      return <Feed mapper></Feed>;
+    } else if (pay) {
+      return <Feed pay></Feed>;
     }
+
     return <Feed></Feed>;
   };
 
