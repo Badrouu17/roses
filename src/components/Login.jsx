@@ -1,7 +1,7 @@
 import React from "react";
+import ContainerSmall from "./ContainerSmall";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import ContainerSmall from "./ContainerSmall";
 import { Link } from "react-router-dom";
 
 const Login = () => {
