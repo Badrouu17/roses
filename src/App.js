@@ -49,6 +49,11 @@ function App() {
         <Route
           path="/dashboard/feed/:rose_id/:qnt/:location"
           exact
+          render={(props) => <Dashboard place={true} {...props}></Dashboard>}
+        ></Route>
+        <Route
+          path="/dashboard/feed/:rose_id/:qnt/:location/:place"
+          exact
           render={(props) => <Dashboard pay={true} {...props}></Dashboard>}
         ></Route>
         <Route
