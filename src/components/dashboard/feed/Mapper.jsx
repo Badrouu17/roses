@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from "google-maps-react";
+import { Link, useParams } from "react-router-dom";
 
 const Mapper = ({ google }) => {
+  const { rose_name, qnt } = useParams();
+  const [location, setLocation] = useState({
+    lng: 0,
+    lat: 0,
+  });
+
   const [currentLocation, setCurrentLocation] = useState({
     lng: 3.087458,
     lat: 36.732251,
@@ -24,6 +31,7 @@ const Mapper = ({ google }) => {
         map: map,
       });
       map.panTo(e.latLng);
+      setLocation({ lng: e.latLng.lng(), lat: e.latLng.lat() });
       setClicked(clicked + 1);
     }
   };
@@ -59,26 +67,20 @@ const Mapper = ({ google }) => {
             </Map>
           </div>
           {clicked === 1 ? (
-            <button
+            <Link
+              to={`/dashboard/feed/${rose_name}/${qnt}/${location.lng}-${location.lat}`}
               class=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
             >
               NEXT
-            </button>
+            </Link>
           ) : (
-            <button
+            <Link
+              to={`/dashboard/feed/${rose_name}/${qnt}`}
               class="opacity-50 cursor-not-allowed w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="submit"
             >
               NEXT
-            </button>
+            </Link>
           )}
-          {/* <button
-            class=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            NEXT
-          </button> */}
         </div>
       </div>
     </div>

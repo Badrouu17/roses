@@ -23,7 +23,10 @@ const Card = () => {
         <p>
           <span className="card__footer-value">${"2"} </span>
         </p>
-        <Link to={`/tour/${1}`} className="btn btn--green btn--small">
+        <Link
+          to={`/dashboard/feed/${"rose"}`}
+          className="btn btn--green btn--small"
+        >
           SEND
         </Link>
       </div>
