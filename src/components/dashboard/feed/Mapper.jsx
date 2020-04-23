@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import { Map, Marker, InfoWindow, GoogleApiWrapper } from "google-maps-react";
 
 const Mapper = ({ google }) => {
   const [currentLocation, setCurrentLocation] = useState({
@@ -15,6 +15,14 @@ const Mapper = ({ google }) => {
       });
     });
   });
+
+  const placeMarker = (mapProps, map, e) => {
+    let marker = new google.maps.Marker({
+      position: e.latLng,
+      map: map,
+    });
+    map.panTo(e.latLng);
+  };
 
   return (
     <div className="previous py-12 px-12 flex flex-row content-center justify-around align-middle">
@@ -32,16 +40,22 @@ const Mapper = ({ google }) => {
               google={google}
               zoom={16}
               center={currentLocation}
+              onClick={placeMarker}
             >
               <Marker
                 title={"You are here"}
                 name={"Your location"}
                 position={currentLocation}
               />
+              <InfoWindow visible={true} position={currentLocation}>
+                <div>
+                  <h1>your current location</h1>
+                </div>
+              </InfoWindow>
             </Map>
           </div>
           <button
-            class="w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             NEXT
