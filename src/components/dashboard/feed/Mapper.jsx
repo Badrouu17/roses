@@ -6,6 +6,7 @@ const Mapper = ({ google }) => {
     lng: 3.087458,
     lat: 36.732251,
   });
+  let [clicked, setClicked] = useState(0);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -17,11 +18,14 @@ const Mapper = ({ google }) => {
   });
 
   const placeMarker = (mapProps, map, e) => {
-    let marker = new google.maps.Marker({
-      position: e.latLng,
-      map: map,
-    });
-    map.panTo(e.latLng);
+    if (clicked === 0) {
+      let marker = new google.maps.Marker({
+        position: e.latLng,
+        map: map,
+      });
+      map.panTo(e.latLng);
+      setClicked(clicked + 1);
+    }
   };
 
   return (
@@ -54,12 +58,27 @@ const Mapper = ({ google }) => {
               </InfoWindow>
             </Map>
           </div>
-          <button
+          {clicked === 1 ? (
+            <button
+              class=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              NEXT
+            </button>
+          ) : (
+            <button
+              class="opacity-50 cursor-not-allowed w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              NEXT
+            </button>
+          )}
+          {/* <button
             class=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             NEXT
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

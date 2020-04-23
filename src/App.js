@@ -37,22 +37,22 @@ function App() {
           render={(props) => <Dashboard {...props}></Dashboard>}
         ></Route>
         <Route
-          path="/dashboard/feed/:rose_id"
+          path="/dashboard/feed/:rose_name"
           exact
           render={(props) => <Dashboard qnt={true} {...props}></Dashboard>}
         ></Route>
         <Route
-          path="/dashboard/feed/:rose_id/:qnt"
+          path="/dashboard/feed/:rose_name/:qnt"
           exact
           render={(props) => <Dashboard mapper={true} {...props}></Dashboard>}
         ></Route>
         <Route
-          path="/dashboard/feed/:rose_id/:qnt/:location"
+          path="/dashboard/feed/:rose_name/:qnt/:location"
           exact
           render={(props) => <Dashboard place={true} {...props}></Dashboard>}
         ></Route>
         <Route
-          path="/dashboard/feed/:rose_id/:qnt/:location/:place"
+          path="/dashboard/feed/:rose_name/:qnt/:location/:place"
           exact
           render={(props) => <Dashboard pay={true} {...props}></Dashboard>}
         ></Route>
