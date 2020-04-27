@@ -9,18 +9,18 @@ const Pay = () => {
       <div class="w-3/4 bg-white rounded overflow-hidden shadow flex flex-col justify-around align-middle">
         <div class="px-10 py-10">
           <div class="flex flex-row items-center justify-around text-red-500 font-black text-center mb-2">
-            <div className="overflow-hidden shadow rounded border-solid border-red-500">
-              <p className="mt-1 text-6xl text-red-500 text-center lobster-font">
+            <div className="px-16 py-4 overflow-hidden shadow rounded text-yellow-100 background-gradient">
+              <p className="mt-1 text-6xl text-center lobster-font">
                 your order :
               </p>
               <div className="mt-2 text-4xl text-center lobster-font">
-                <p>rose name : {rose_name}</p>
-                <p>quantity : {qnt}</p>
-                <p>location : {location}</p>
-                <p>place : {place}</p>
+                <p>Rose name : {rose_name}</p>
+                <p>Quantity : {qnt}</p>
+                <p>Location : verified ✅</p>
+                <p>Place : {place}</p>
               </div>
             </div>
-            <div className="">
+            <div className=" ml-2">
               <p className="mt-1 mb-8 text-6xl text-red-500 text-center lobster-font">
                 payment :
               </p>

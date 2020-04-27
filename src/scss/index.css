@@ -626,4 +626,9 @@ body {
       align-self: center;
   margin-bottom: 20px;
 }
+
+.background-gradient {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#c61b37), to(#f6505d));
+  background-image: linear-gradient(to right bottom, #c61b37, #f6505d);
+}
 /*# sourceMappingURL=index.css.map */
