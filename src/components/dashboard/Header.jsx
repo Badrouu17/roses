@@ -4,8 +4,6 @@ import { IconContext } from "react-icons";
 import { IoIosLogOut } from "react-icons/io";
 
 const Header = () => {
-  const { store, setStore } = useContext(storeContext);
-
   return (
     <IconContext.Provider value={{ size: "5em", style: { color: "#f56565" } }}>
       <div className="header p-2 border border-gray-300 rounded shadow">

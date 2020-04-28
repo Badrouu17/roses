@@ -2,7 +2,11 @@ import React, { useState, useMemo } from "react";
 import { storeContext } from "./store";
 
 const StoreProvider = ({ children }) => {
-  const [store, setStore] = useState({});
+  const [store, setStore] = useState({
+    user: null,
+    roses: null,
+    orders: null,
+  });
 
   const storeValue = useMemo(() => ({ store, setStore }), [store, setStore]);
 

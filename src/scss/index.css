@@ -392,9 +392,7 @@ body {
 }
 
 .loader {
-  background-color: #f7f7f7;
-  text-align: center;
-  padding: 200px;
+  margin: 100px 380px;
 }
 
 .toastify {
@@ -570,7 +568,7 @@ body {
   height: 100%;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#c61b37), to(#f6505d));
   background-image: linear-gradient(to right bottom, #c61b37, #f6505d);
-  opacity: 0.7;
+  opacity: 0;
 }
 
 .card__picture-img {

@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-async function callAuth(data, type) {
+export async function callAuth(data, type) {
   try {
     const response = await Axios.post(
       `https://roses-api.herokuapp.com/api/v1/users/${type}`,
@@ -12,37 +12,28 @@ async function callAuth(data, type) {
   }
 }
 
-async function signUp(data) {
+export async function signUp(data) {
   return await callAuth(data, "signup");
 }
 
-async function login(data) {
+export async function login(data) {
   return await callAuth(data, "login");
 }
 
-function storeTheUser(token, data) {
+export function storeTheUser(token, data) {
   localStorage.setItem("token", token);
   localStorage.setItem("user", JSON.stringify(data));
 }
 
-function getTheUserFromStorage() {
+export function getTheUserFromStorage() {
   return JSON.parse(localStorage.getItem("user"));
 }
 
-function getTheTokenFromStorage() {
+export function getTheTokenFromStorage() {
   return localStorage.getItem("token");
 }
 
-function deleteTheUserAndTokenFromStorage() {
+export function deleteTheUserAndTokenFromStorage() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
 }
-
-export default {
-  login,
-  signUp,
-  storeTheUser,
-  getTheUserFromStorage,
-  getTheTokenFromStorage,
-  deleteTheUserAndTokenFromStorage,
-};
