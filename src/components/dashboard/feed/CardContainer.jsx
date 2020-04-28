@@ -15,7 +15,7 @@ const CardContainer = () => {
       };
       fetchData();
     }
-  });
+  }, [store.roses]);
 
   console.log(store.roses);
 

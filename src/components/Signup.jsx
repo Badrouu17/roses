@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { storeContext } from "./../global/store";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ContainerSmall from "./ContainerSmall";
+import { Redirect } from "react-router-dom";
+import { signUp, storeTheUser } from "./../services/auth";
 
 const Signup = () => {
+  const [loading, setLoading] = useState(false);
+  const { store, setStore } = useContext(storeContext);
+
   const validationSchema = Yup.object({
-    Name: Yup.string()
+    name: Yup.string()
       .max(15, "Must be 15 characters or less")
       .required("This field is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("This field is required"),
-    Password: Yup.string()
+    password: Yup.string()
       .required("No password provided.")
       .min(8, "Password is too short - should be 8 chars minimum."),
     confirmPassword: Yup.string()
       .required("This field is required")
-      .oneOf([Yup.ref("Password"), null], "Passwords must match"),
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
+
+  if (store.isLogged) {
+    return <Redirect to="/dashboard/feed"></Redirect>;
+  }
+
   return (
     <React.Fragment>
       <ContainerSmall>
@@ -29,32 +40,43 @@ const Signup = () => {
           </div>
           <Formik
             initialValues={{
-              Name: "",
+              name: "",
               email: "",
-              Password: "",
+              password: "",
               confirmPassword: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
+            onSubmit={async (values, { setSubmitting }) => {
+              setLoading(true);
+              const { data } = await signUp(values);
+              if (data.code === 200) {
+                setStore({
+                  ...store,
+                  token: data.data.token,
+                  user: data.data.user,
+                  isLogged: true,
+                });
+                storeTheUser(data.data.token, data.data.user);
+              } else {
+                alert("error!! during submitting.");
+              }
+              setLoading(false);
+              setSubmitting(false);
             }}
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">
               <Field
-                placeHolder="Name"
+                placeholder="name"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                name="Name"
+                name="name"
                 type="text"
               />
               <div className=" mt-1 text-lg font-bold text-red-400 border-red-400 border-solid">
-                <ErrorMessage name="Name" />
+                <ErrorMessage name="name" />
               </div>
 
               <Field
-                placeHolder="Email"
+                placeholder="email"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="email"
                 type="email"
@@ -64,17 +86,17 @@ const Signup = () => {
               </div>
 
               <Field
-                placeHolder="Password"
+                placeholder="password"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                name="Password"
+                name="password"
                 type="password"
               />
               <div className=" mt-1 text-lg font-bold text-red-400 border-red-400 border-solid">
-                <ErrorMessage name="Password" />
+                <ErrorMessage name="password" />
               </div>
 
               <Field
-                placeHolder="Confirm Password"
+                placeholder="Confirm Password"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="confirmPassword"
                 type="password"
@@ -84,10 +106,10 @@ const Signup = () => {
               </div>
 
               <button
-                class="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
-                SIGNUP
+                {loading ? "SIGNUP . . ." : "SINGUP"}
               </button>
             </Form>
           </Formik>

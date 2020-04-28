@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { storeContext } from "./../global/store";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ContainerSmall from "./ContainerSmall";
+import { Redirect } from "react-router-dom";
 
 const ForgotPassword = () => {
+  const { store, setStore } = useContext(storeContext);
+
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
       .required("This field is required"),
   });
+
+  if (store.isLogged) {
+    return <Redirect to="/dashboard/feed"></Redirect>;
+  }
+
   return (
     <ContainerSmall>
       <div className="bg-sp">

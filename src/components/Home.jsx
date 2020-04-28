@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { storeContext } from "./../global/store";
 import ContainerSmall from "./ContainerSmall";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Home = () => {
+  const { store, setStore } = useContext(storeContext);
+
+  if (store.isLogged) {
+    return <Redirect to="/dashboard/feed"></Redirect>;
+  }
   return (
     <ContainerSmall>
       <div className="home">

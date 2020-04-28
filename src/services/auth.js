@@ -3,7 +3,7 @@ import Axios from "axios";
 export async function callAuth(data, type) {
   try {
     const response = await Axios.post(
-      `https://roses-api.herokuapp.com/api/v1/users/${type}`,
+      `https://roses-api.herokuapp.com/api/v1/auth/${type}`,
       data
     );
     return response;
