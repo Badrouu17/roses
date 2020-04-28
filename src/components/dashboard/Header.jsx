@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { storeContext } from "./../../store";
 import { IconContext } from "react-icons";
 import { IoIosLogOut } from "react-icons/io";
 

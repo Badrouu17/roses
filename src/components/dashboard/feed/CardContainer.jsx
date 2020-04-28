@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { storeContext } from "./../../../store";
+import { storeContext } from "./../../../global/store";
 import { getAllRoses } from "../../../services/roses";
 import Loader from "react-loader-spinner";
 import Card from "./Card";
