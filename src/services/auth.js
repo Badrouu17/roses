@@ -20,8 +20,10 @@ export async function login(data) {
   return await callAuth(data, "login");
 }
 
-export function storeTheUser(token, data) {
-  localStorage.setItem("token", token);
+export function storeTheUser(data, token = null) {
+  if (token) {
+    localStorage.setItem("token", token);
+  }
   localStorage.setItem("user", JSON.stringify(data));
 }
 

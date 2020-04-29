@@ -50,7 +50,7 @@ const ResetPassword = () => {
                   user: data.data.user,
                   isLogged: true,
                 });
-                storeTheUser(data.data.token, data.data.user);
+                storeTheUser(data.data.user, data.data.token);
               } else {
                 alert("error!! during resetting.");
               }

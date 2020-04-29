@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { storeContext } from "./../../global/store";
+
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { updatePassword } from "./../../services/account";
+import { storeTheUser } from "./../../services/auth";
 
 const UpdatePassword = () => {
+  const [loading, setLoading] = useState(false);
+  const { store, setStore } = useContext(storeContext);
+
   const validationSchema = Yup.object({
     currentPassword: Yup.string()
       .required("No password provided.")
@@ -12,7 +19,7 @@ const UpdatePassword = () => {
       .min(8, "Password is too short - should be 8 chars minimum."),
     confirmPassword: Yup.string()
       .required("This field is required")
-      .oneOf([Yup.ref("Password"), null], "Passwords must match"),
+      .oneOf([Yup.ref("newPassword"), null], "Passwords must match"),
   });
   return (
     <div className="user-view__form-container">
@@ -24,11 +31,23 @@ const UpdatePassword = () => {
           confirmPassword: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={async (values, { setSubmitting }) => {
+          setLoading(true);
+          const { data, code } = await updatePassword(values);
+          if (code === 200 || data.code === 200) {
+            setStore({
+              ...store,
+              token: data.data.token,
+              user: data.data.user,
+              isLogged: true,
+            });
+            storeTheUser(data.data.user, data.data.token);
+            alert("Password updated successfully");
+          } else {
+            alert("error!! during updating.");
+          }
+          setLoading(false);
+          setSubmitting(false);
         }}
       >
         <Form className="form form-user-settings">
@@ -78,9 +97,8 @@ const UpdatePassword = () => {
           </div>
 
           <div className="form__group right">
-            <button className="btn btn--small btn--green">
-              Save
-              {/* {this.state.saving ? "saving..." : "Save password"} */}
+            <button type="submit" className="btn btn--small btn--green">
+              {loading ? "SAVE . . ." : "SAVE"}
             </button>
           </div>
         </Form>
