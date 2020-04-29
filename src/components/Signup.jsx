@@ -62,6 +62,7 @@ const Signup = () => {
               }
               setLoading(false);
               setSubmitting(false);
+              window.location.reload();
             }}
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">

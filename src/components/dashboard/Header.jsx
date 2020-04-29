@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { IconContext } from "react-icons";
 import { IoIosLogOut } from "react-icons/io";
+import { deleteTheUserAndTokenFromStorage } from "./../../services/auth";
 
 const Header = () => {
   return (
@@ -11,7 +12,13 @@ const Header = () => {
           src={require("./../../scss/img/roses_bg2.jpg")}
           className=" float-left h-20 w-20 rounded-full mx-4"
         ></img>
-        <div className="float-right">
+        <div
+          onClick={() => {
+            deleteTheUserAndTokenFromStorage();
+            window.location.reload();
+          }}
+          className="float-right cursor-pointer"
+        >
           <IoIosLogOut></IoIosLogOut>
         </div>
       </div>
