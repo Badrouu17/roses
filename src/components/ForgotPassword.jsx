@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { storeContext } from "./../global/store";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ContainerSmall from "./ContainerSmall";
 import { Redirect } from "react-router-dom";
+import { forgotPassword } from "./../services/forgotPassword";
 
 const ForgotPassword = () => {
+  const [loading, setLoading] = useState(false);
   const { store, setStore } = useContext(storeContext);
 
   const validationSchema = Yup.object({
@@ -32,11 +34,18 @@ const ForgotPassword = () => {
               email: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
+            onSubmit={async (values, { setSubmitting }) => {
+              setLoading(true);
+              const { code } = await forgotPassword(values);
+              if (code === 200) {
+                alert(
+                  "the email got send successfully, check your email sandbox."
+                );
+              } else {
+                alert("error!! during sending, please try later.");
+              }
+              setLoading(false);
+              setSubmitting(false);
             }}
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">
@@ -57,7 +66,7 @@ const ForgotPassword = () => {
                 class="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
-                SEND
+                {loading ? "SEND . . ." : "SEND"}
               </button>
             </Form>
           </Formik>
