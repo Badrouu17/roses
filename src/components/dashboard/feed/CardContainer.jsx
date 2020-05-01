@@ -15,7 +15,7 @@ const CardContainer = () => {
       };
       fetchData();
     }
-  }, [store.roses]);
+  }, [store.roses]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onWheel = (e) => {
     e.preventDefault();

@@ -19,7 +19,7 @@ const StoreProvider = ({ children }) => {
     const isLogged = token ? true : false;
     const user = getTheUserFromStorage();
     setStore({ ...store, isLogged, token, user });
-  }, [store.isLogged]);
+  }, [store.isLogged]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const storeValue = useMemo(() => ({ store, setStore }), [store, setStore]);
 
