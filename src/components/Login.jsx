@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link, Redirect } from "react-router-dom";
 import { login, storeTheUser } from "./../services/auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -40,8 +41,8 @@ const Login = () => {
             validationSchema={validationSchema}
             onSubmit={async (values, { setSubmitting }) => {
               setLoading(true);
-              const { data } = await login(values);
-              if (data.code === 200) {
+              const { data, code, error } = await login(values);
+              if ((data && data.code === 200) || code === 200) {
                 setStore({
                   ...store,
                   token: data.data.token,
@@ -49,12 +50,15 @@ const Login = () => {
                   isLogged: true,
                 });
                 storeTheUser(data.data.user, data.data.token);
+                window.location.reload();
               } else {
-                alert("error!! during submitting.");
+                toast.error(error.response.data.description, {
+                  className: "toastify",
+                  onClose: () => window.location.reload(),
+                });
               }
               setLoading(false);
               setSubmitting(false);
-              window.location.reload();
             }}
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">

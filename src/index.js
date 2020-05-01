@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/main.css";
 import "./scss/index.css";
+import "react-toastify/dist/ReactToastify.css";
+
 import Main from "./main";
 import * as serviceWorker from "./serviceWorker";
 

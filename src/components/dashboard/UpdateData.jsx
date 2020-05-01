@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { updateMe } from "./../../services/account";
 import { storeTheUser } from "./../../services/auth";
+import { toast } from "react-toastify";
 
 const UpdateData = () => {
   const [loading, setLoading] = useState(false);
@@ -30,18 +31,22 @@ const UpdateData = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {
           setLoading(true);
-          const { data, code } = await updateMe(values);
+          const { data, code, error } = await updateMe(values);
           console.log(data);
-          if (code === 200 || data.code === 200) {
+          if (code === 200 || (data && data.code === 200)) {
             setStore({
               ...store,
               user: data.data,
               isLogged: true,
             });
             storeTheUser(data.data);
-            alert("updated successfully");
+            toast.success("updated successfully", {
+              className: "toastify",
+            });
           } else {
-            alert("error!! during updating.");
+            toast.error(error.response.data.description, {
+              className: "toastify",
+            });
           }
           setLoading(false);
           setSubmitting(false);

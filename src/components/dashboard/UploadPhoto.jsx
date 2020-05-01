@@ -13,6 +13,29 @@ const UploadPhoto = () => {
     setFile(e.target.files[0]);
   };
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = new FormData();
+    file && form.append("file", file);
+
+    const response = await upload(form);
+
+    let user = store.user;
+    user.photo =
+      "https://res.cloudinary.com/batn05000/image/upload/v1587768862/white_pcxxbo.jpg";
+    setStore({ ...store, user });
+    storeTheUser(user);
+
+    // toast.success("changed successfully", {
+    //   className: "toastify",
+    //   onClose: () => window.location.reload(),
+    // });
+
+    setLoading(false);
+    window.location.reload();
+  };
+
   return (
     <div className="user-view__form-container">
       <form onSubmit={(e) => submitHandler(e)} className="form form-user-data">
@@ -28,12 +51,12 @@ const UploadPhoto = () => {
           />
           <input onChange={(e) => changeHandler(e)} id="file" type="file" />
         </div>
+        <div className="form__group right">
+          <button type="submit" className="btn btn--small btn--green">
+            {loading ? "UPLOAD . . ." : "UPLOAD"}
+          </button>
+        </div>
       </form>
-      <div className="form__group right">
-        <button type="submit" className="btn btn--small btn--green">
-          {loading ? "UPLOAD . . ." : "UPLOAD"}
-        </button>
-      </div>
     </div>
   );
 };

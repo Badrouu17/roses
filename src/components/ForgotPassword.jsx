@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import ContainerSmall from "./ContainerSmall";
 import { Redirect } from "react-router-dom";
 import { forgotPassword } from "./../services/forgotPassword";
+import { toast } from "react-toastify";
 
 const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
@@ -38,11 +39,18 @@ const ForgotPassword = () => {
               setLoading(true);
               const { code } = await forgotPassword(values);
               if (code === 200) {
-                alert(
-                  "the email got send successfully, check your email sandbox."
+                toast.success(
+                  "the email got send successfully, check your email sandbox.",
+                  {
+                    className: "toastify",
+                    onClose: () => window.location.reload(),
+                  }
                 );
               } else {
-                alert("error!! during sending, please try later.");
+                toast.error("error!! during sending, please try later.", {
+                  className: "toastify",
+                  onClose: () => window.location.reload(),
+                });
               }
               setLoading(false);
               setSubmitting(false);

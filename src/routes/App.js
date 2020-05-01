@@ -16,6 +16,11 @@ function App() {
     <React.Fragment>
       <Switch>
         <Route
+          path="/"
+          exact
+          render={(props) => <Home {...props}></Home>}
+        ></Route>
+        <Route
           path="/signup"
           exact
           render={(props) => <Signup {...props}></Signup>}
@@ -76,12 +81,6 @@ function App() {
           path="/dashboard/previous"
           exact
           render={(props) => <Dashboard previous={true} {...props}></Dashboard>}
-        ></ProtectedRoute>
-        <ProtectedRoute
-          isLogged={store.isLogged}
-          path="/"
-          exact
-          render={(props) => <Home {...props}></Home>}
         ></ProtectedRoute>
       </Switch>
     </React.Fragment>

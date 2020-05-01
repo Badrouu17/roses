@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import ContainerSmall from "./ContainerSmall";
 import { Redirect } from "react-router-dom";
 import { signUp, storeTheUser } from "./../services/auth";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -48,8 +49,8 @@ const Signup = () => {
             validationSchema={validationSchema}
             onSubmit={async (values, { setSubmitting }) => {
               setLoading(true);
-              const { data } = await signUp(values);
-              if (data.code === 200) {
+              const { data, code, error } = await signUp(values);
+              if ((data && data.code === 200) || code === 200) {
                 setStore({
                   ...store,
                   token: data.data.token,
@@ -57,12 +58,15 @@ const Signup = () => {
                   isLogged: true,
                 });
                 storeTheUser(data.data.user, data.data.token);
+                window.location.reload();
               } else {
-                alert("error!! during submitting.");
+                toast.error(error.response.data.description, {
+                  className: "toastify",
+                  onClose: () => window.location.reload(),
+                });
               }
               setLoading(false);
               setSubmitting(false);
-              window.location.reload();
             }}
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">

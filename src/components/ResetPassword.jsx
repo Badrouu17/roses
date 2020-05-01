@@ -6,6 +6,7 @@ import ContainerSmall from "./ContainerSmall";
 import { Redirect, useParams } from "react-router-dom";
 import { resetPassword } from "./../services/forgotPassword";
 import { storeTheUser } from "./../services/auth";
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -42,8 +43,8 @@ const ResetPassword = () => {
             validationSchema={validationSchema}
             onSubmit={async (values, { setSubmitting }) => {
               setLoading(true);
-              const { data, code } = await resetPassword(values, token);
-              if (code === 200 || data.code === 200) {
+              const { data, code, error } = await resetPassword(values, token);
+              if (code === 200 || (data && data.code === 200)) {
                 setStore({
                   ...store,
                   token: data.data.token,
@@ -52,11 +53,13 @@ const ResetPassword = () => {
                 });
                 storeTheUser(data.data.user, data.data.token);
               } else {
-                alert("error!! during resetting.");
+                toast.error(error.response.data.description, {
+                  className: "toastify",
+                  onClose: () => window.location.reload(),
+                });
               }
               setLoading(false);
               setSubmitting(false);
-              window.location.reload();
             }}
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">

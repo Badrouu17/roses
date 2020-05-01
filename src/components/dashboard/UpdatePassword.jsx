@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { updatePassword } from "./../../services/account";
 import { storeTheUser } from "./../../services/auth";
+import { toast } from "react-toastify";
 
 const UpdatePassword = () => {
   const [loading, setLoading] = useState(false);
@@ -33,8 +34,8 @@ const UpdatePassword = () => {
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {
           setLoading(true);
-          const { data, code } = await updatePassword(values);
-          if (code === 200 || data.code === 200) {
+          const { data, code, error } = await updatePassword(values);
+          if (code === 200 || (data && data.code === 200)) {
             setStore({
               ...store,
               token: data.data.token,
@@ -42,9 +43,13 @@ const UpdatePassword = () => {
               isLogged: true,
             });
             storeTheUser(data.data.user, data.data.token);
-            alert("Password updated successfully");
+            toast.success("Password updated successfully", {
+              className: "toastify",
+            });
           } else {
-            alert("error!! during updating.");
+            toast.error(error.response.data.description, {
+              className: "toastify",
+            });
           }
           setLoading(false);
           setSubmitting(false);
