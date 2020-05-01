@@ -63,7 +63,7 @@ const Login = () => {
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">
               <Field
-                placeHolder="Email"
+                placeholder="Email"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="email"
                 type="email"
@@ -73,7 +73,7 @@ const Login = () => {
               </div>
 
               <Field
-                placeHolder="Password"
+                placeholder="Password"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="password"
                 type="password"
@@ -83,17 +83,17 @@ const Login = () => {
               </div>
 
               <button
-                class="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 {loading ? "LOGIN . . ." : "LOGIN"}
               </button>
 
-              <button class="w-1/2 h-16 text-xl mt-8 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="w-1/2 h-16 text-xl mt-8 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 <Link to="/forgotPassword">Forgot your password?</Link>
               </button>
 
-              <button class="w-1/2 h-16 text-xl mt-4 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="w-1/2 h-16 text-xl mt-4 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 <Link to="/signup">You don't have an account ? SIGNUP NOW</Link>
               </button>
             </Form>

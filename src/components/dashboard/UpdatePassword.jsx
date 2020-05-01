@@ -62,7 +62,7 @@ const UpdatePassword = () => {
             </label>
             <Field
               className="form__input"
-              placeHolder="Current Password"
+              placeholder="Current Password"
               name="currentPassword"
               type="password"
             />
@@ -77,7 +77,7 @@ const UpdatePassword = () => {
             </label>
             <Field
               className="form__input"
-              placeHolder="New Password"
+              placeholder="New Password"
               name="newPassword"
               type="password"
             />
@@ -92,7 +92,7 @@ const UpdatePassword = () => {
             </label>
             <Field
               className="form__input"
-              placeHolder="Confirm Password"
+              placeholder="Confirm Password"
               name="confirmPassword"
               type="password"
             />

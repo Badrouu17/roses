@@ -64,7 +64,7 @@ const ResetPassword = () => {
           >
             <Form className=" mt-10 flex flex-col items-center justify-center content-center">
               <Field
-                placeHolder="Password"
+                placeholder="Password"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="password"
                 type="password"
@@ -74,7 +74,7 @@ const ResetPassword = () => {
               </div>
 
               <Field
-                placeHolder="Confirm password"
+                placeholder="Confirm password"
                 className="w-1/2 h-16 mt-12 text-2xl font-bold text-center shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="confirmPassword"
                 type="password"
@@ -84,7 +84,7 @@ const ResetPassword = () => {
               </div>
 
               <button
-                class="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 {loading ? "RESET . . ." : "RESET"}

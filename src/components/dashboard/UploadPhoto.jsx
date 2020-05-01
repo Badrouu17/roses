@@ -31,7 +31,6 @@ const UploadPhoto = () => {
     //   className: "toastify",
     //   onClose: () => window.location.reload(),
     // });
-
     setLoading(false);
     window.location.reload();
   };

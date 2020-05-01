@@ -10,7 +10,7 @@ import ResetPassword from "./../components/ResetPassword";
 import Dashboard from "./../components/dashboard/Dashboard";
 
 function App() {
-  const { store, setStore } = useContext(storeContext);
+  const { store } = useContext(storeContext);
 
   return (
     <React.Fragment>

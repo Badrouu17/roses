@@ -59,7 +59,7 @@ const UpdateData = () => {
             </label>
             <Field
               className="form__input"
-              placeHolder="Name"
+              placeholder="Name"
               name="name"
               type="text"
             />
@@ -71,7 +71,7 @@ const UpdateData = () => {
             </label>
             <Field
               className="form__input"
-              placeHolder="Email"
+              placeholder="Email"
               name="email"
               type="email"
             />

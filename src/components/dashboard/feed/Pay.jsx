@@ -6,9 +6,9 @@ const Pay = () => {
   const { rose_name, qnt, location, place } = useParams();
   return (
     <div className="previous py-20 px-20 flex flex-row content-center justify-around align-middle">
-      <div class="w-3/4 bg-white rounded overflow-hidden shadow flex flex-col justify-around align-middle">
-        <div class="px-10 py-10">
-          <div class="flex flex-row items-center justify-around text-red-500 font-black text-center mb-2">
+      <div className="w-3/4 bg-white rounded overflow-hidden shadow flex flex-col justify-around align-middle">
+        <div className="px-10 py-10">
+          <div className="flex flex-row items-center justify-around text-red-500 font-black text-center mb-2">
             <div className="px-16 py-4 overflow-hidden shadow rounded text-yellow-100 background-gradient">
               <p className="mt-1 text-6xl text-center lobster-font">
                 your order :

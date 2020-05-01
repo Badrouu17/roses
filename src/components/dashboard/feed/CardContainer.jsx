@@ -17,8 +17,6 @@ const CardContainer = () => {
     }
   }, [store.roses]);
 
-  console.log(store.roses);
-
   const onWheel = (e) => {
     e.preventDefault();
     var container = document.getElementById("feed");
