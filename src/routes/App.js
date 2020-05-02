@@ -83,6 +83,9 @@ function App() {
           render={(props) => <Dashboard previous={true} {...props}></Dashboard>}
         ></ProtectedRoute>
       </Switch>
+      <div className="by">
+        <p>Built with ❤ by Badreddin laabed.</p>
+      </div>
     </React.Fragment>
   );
 }

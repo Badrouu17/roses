@@ -37,7 +37,7 @@ const Mapper = ({ google }) => {
   };
 
   return (
-    <div className="previous py-12 px-12 flex flex-row content-center justify-around align-middle">
+    <div className="previous py-8 px-8 flex flex-row content-center justify-around align-middle">
       <div className="w-3/4 bg-white rounded overflow-hidden shadow flex flex-col justify-start align-middle">
         <div className="flex flex-col items-center content-center justify-center align-middle">
           <p className=" mb-2 text-6xl text-red-500 text-center lobster-font">
@@ -69,14 +69,14 @@ const Mapper = ({ google }) => {
           {clicked === 1 ? (
             <Link
               to={`/dashboard/feed/${rose_name}/${qnt}/${location.lng}-${location.lat}`}
-              className=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className=" w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center"
             >
               NEXT
             </Link>
           ) : (
             <Link
               to={`/dashboard/feed/${rose_name}/${qnt}`}
-              className="opacity-50 cursor-not-allowed w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="opacity-50 cursor-not-allowed w-1/3 h-12 text-2xl mt-8 mb-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center"
             >
               NEXT
             </Link>

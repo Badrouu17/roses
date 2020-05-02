@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Icons from "./../../icons.svg";
 import UpdateData from "./UpdateData";
-import UploadPhoto from "./UploadPhoto";
 import UpdatePassword from "./UpdatePassword";
 
 const Profile = () => {
@@ -23,8 +22,6 @@ const Profile = () => {
         </nav>
         <div className="user-view__content">
           <UpdateData></UpdateData>
-          <div className="line">&nbsp;</div>
-          <UploadPhoto></UploadPhoto>
           <div className="line">&nbsp;</div>
           <UpdatePassword></UpdatePassword>
         </div>

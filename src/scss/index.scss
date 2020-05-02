@@ -42,6 +42,17 @@ body {
   min-height: calc(100vh - 2 * 4vw);
 }
 
+.by {
+  color: #f7f7f7;
+  float: right;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0px;
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .conta-wide {
   max-width: 100rem;
   margin: 4vw auto;
@@ -52,7 +63,7 @@ body {
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   display: grid;
   //   grid-template-rows: 10rem minmax(43rem, auto);
-  grid-template-rows: 6rem 38.62rem 8rem;
+  grid-template-rows: 6rem 37rem 6.62rem;
   grid-template-columns: 4.2fr;
   grid-template-areas: "head" "content" "footer";
   @media only screen and (max-width: 68.75em) {
@@ -72,7 +83,7 @@ body {
   box-shadow: 0 2rem 6rem 0.5rem rgba(101, 90, 86, 0.2);
   display: grid;
   //   grid-template-rows: 10rem minmax(43rem, auto);
-  grid-template-rows: 53rem;
+  grid-template-rows: 48.4rem;
   grid-template-columns: 4.2fr;
   grid-template-areas: "v1";
   @media only screen and (max-width: 68.75em) {

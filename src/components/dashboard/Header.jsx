@@ -13,11 +13,7 @@ const Header = () => {
         {/* <div className="text-4xl text-red-500 font-black mx-4">LOGOUT</div> */}
         <img
           alt={"profile"}
-          src={
-            store.user && store.user.photo
-              ? store.user.photo
-              : "https://res.cloudinary.com/batn05000/image/upload/v1588199985/default_xg4502.jpg"
-          }
+          src={require("./../../scss/img/Roses.png")}
           className=" float-left h-20 w-20 rounded-full mx-4"
         ></img>
         <div

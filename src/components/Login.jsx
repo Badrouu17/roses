@@ -83,17 +83,17 @@ const Login = () => {
               </div>
 
               <button
-                className="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="w-1/2 h-16 text-2xl mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 {loading ? "LOGIN . . ." : "LOGIN"}
               </button>
 
-              <button className="w-1/2 h-16 text-xl mt-8 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="w-1/2 h-16 text-xl mt-2 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 <Link to="/forgotPassword">Forgot your password?</Link>
               </button>
 
-              <button className="w-1/2 h-16 text-xl mt-4 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button className="w-1/2 h-16 text-xl bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 <Link to="/signup">You don't have an account ? SIGNUP NOW</Link>
               </button>
             </Form>
