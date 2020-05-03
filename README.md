@@ -2,7 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## ROSES
 
-built with ❤ using react , react-hooks, react-context-api, react-router and tailwindCSS
+built with ❤ using React , React-Hooks, React-Context-Api, React-Router, Sass and TailwindCSS
+
+Uses Roses-Api : https://github.com/Badrouu17/roses-api
 
 ## Available Scripts
 
