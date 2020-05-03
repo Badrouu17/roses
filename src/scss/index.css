@@ -1,4 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+:root {
+  --my-red-1: #c61b37;
+  --my-red-2: #f6505d;
+  --my-pink-1: #f0839a;
+  --my-pink-2: #f7a4b6;
+  --my-white-1: #b8aaaa;
+  --my-white-2: #dacece;
+  --my-purple-1: #aa5988;
+  --my-purple-2: #ca87ae;
+  --my-yellow-1: #d1be54;
+  --my-yellow-2: #ebd977;
+  --my-orange-1: #dd804a;
+  --my-orange-2: #f39f6d;
+}
+
+.Red {
+  --color-one: var(--my-red-1);
+  --color-two: var(--my-red-2);
+}
+
+.Pink {
+  --color-one: var(--my-pink-1);
+  --color-two: var(--my-pink-2);
+}
+
+.White {
+  --color-one: var(--my-white-1);
+  --color-two: var(--my-white-2);
+}
+
+.Purple {
+  --color-one: var(--my-purple-1);
+  --color-two: var(--my-purple-2);
+}
+
+.Yellow {
+  --color-one: var(--my-yellow-1);
+  --color-two: var(--my-yellow-2);
+}
+
+.Orange {
+  --color-one: var(--my-orange-1);
+  --color-two: var(--my-orange-2);
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -178,8 +223,8 @@ body {
   line-height: 1;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#c61b37), to(#f6505d));
-  background-image: linear-gradient(to bottom right, #c61b37, #f6505d);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(var(--color-one)), to(var(--color-two)));
+  background-image: linear-gradient(to bottom right, var(--color-one), var(--color-two));
 }
 
 .heading-primary1 {
@@ -402,97 +447,17 @@ body {
   font-weight: 600;
 }
 
-.loader {
+.loader-big {
   margin: 100px 380px;
+}
+
+.loader-small {
+  margin: 10px 10px;
 }
 
 .toastify {
   font-size: 15px;
   font-weight: 800;
-}
-
-.btn,
-.btn:link,
-.btn:visited {
-  font-size: 1.6rem;
-  padding: 1.4rem 3rem;
-  border-radius: 10rem;
-  text-transform: uppercase;
-  display: inline-block;
-  text-decoration: none;
-  position: relative;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  font-weight: 400;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  /*Add later when we use this for the button in form*/
-  border: none;
-  cursor: pointer;
-}
-
-.btn:hover {
-  -webkit-transform: translateY(-3px);
-  transform: translateY(-3px);
-  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-}
-
-.btn:active {
-  -webkit-transform: translateY(-1px);
-  transform: translateY(-1px);
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.btn:focus {
-  outline: none;
-  background-color: #c61b37;
-}
-
-.btn--white {
-  background-color: #fff;
-  color: #777;
-}
-
-.btn--white::after {
-  background-color: #fff;
-}
-
-.btn--green {
-  background-color: #f6505d;
-  color: #fff;
-}
-
-.btn--green::after {
-  background-color: #f6505d;
-}
-
-.btn--small {
-  padding: 1.25rem 3rem !important;
-  font-size: 1.4rem !important;
-}
-
-.btn-small,
-.btn-small:link,
-.btn-small:visited {
-  background-color: #f6505d;
-  color: #fff;
-  font-size: 1.4rem;
-  padding: 1.25rem 3rem;
-  border-radius: 10rem;
-  text-transform: uppercase;
-  position: relative;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 400;
-  border: none;
-}
-
-.btn-small:hover {
-  background-color: #f6505d;
 }
 
 .main::-webkit-scrollbar {
@@ -608,7 +573,7 @@ body {
 }
 
 .card__footer-value {
-  color: #f6505d;
+  color: var(--color-two);
   font-size: 3.4rem;
   font-weight: 900;
 }
@@ -639,5 +604,98 @@ body {
 .background-gradient {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#c61b37), to(#f6505d));
   background-image: linear-gradient(to right bottom, #c61b37, #f6505d);
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  font-size: 1.6rem;
+  padding: 1.4rem 3rem;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-weight: 400;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /*Add later when we use this for the button in form*/
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+  background-color: #c61b37;
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn--green {
+  background-color: #f6505d;
+  color: #fff;
+}
+
+.btn--green::after {
+  background-color: #f6505d;
+}
+
+.btn--color {
+  background-color: var(--color-two);
+  color: #fff;
+}
+
+.btn--color::after {
+  background-color: var(--color-one);
+}
+
+.btn--small {
+  padding: 1.25rem 3rem !important;
+  font-size: 1.4rem !important;
+}
+
+.btn-small,
+.btn-small:link,
+.btn-small:visited {
+  background-color: #f6505d;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1.25rem 3rem;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 400;
+  border: none;
+}
+
+.btn-small:hover {
+  background-color: #f6505d;
 }
 /*# sourceMappingURL=index.css.map */

@@ -34,7 +34,7 @@ const CardContainer = () => {
         {store.roses ? (
           store.roses.map((rose, i) => <Card key={i} rose={rose}></Card>)
         ) : (
-          <div className="loader">
+          <div className="loader-big">
             <Loader
               type="Oval"
               color="#f6505d"

@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { Link, Redirect } from "react-router-dom";
 import { login, storeTheUser } from "./../services/auth";
 import { toast } from "react-toastify";
+import Loader from "react-loader-spinner";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -82,12 +83,23 @@ const Login = () => {
                 <ErrorMessage name="password" />
               </div>
 
-              <button
-                className="w-1/2 h-16 text-2xl mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                {loading ? "LOGIN . . ." : "LOGIN"}
-              </button>
+              {loading ? (
+                <div className="loader-small">
+                  <Loader
+                    type="Oval"
+                    color="#f6505d"
+                    height={30}
+                    width={30}
+                  ></Loader>
+                </div>
+              ) : (
+                <button
+                  className="w-1/2 h-16 text-2xl mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                >
+                  LOGIN
+                </button>
+              )}
 
               <button className="w-1/2 h-16 text-xl mt-2 bg-transparent border-red-500 text-red-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 <Link to="/forgotPassword">Forgot your password?</Link>

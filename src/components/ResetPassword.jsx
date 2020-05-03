@@ -7,6 +7,7 @@ import { Redirect, useParams } from "react-router-dom";
 import { resetPassword } from "./../services/forgotPassword";
 import { storeTheUser } from "./../services/auth";
 import { toast } from "react-toastify";
+import Loader from "react-loader-spinner";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -83,12 +84,23 @@ const ResetPassword = () => {
                 <ErrorMessage name="confirmPassword" />
               </div>
 
-              <button
-                className="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                {loading ? "RESET . . ." : "RESET"}
-              </button>
+              {loading ? (
+                <div className="loader-small">
+                  <Loader
+                    type="Oval"
+                    color="#f6505d"
+                    height={30}
+                    width={30}
+                  ></Loader>
+                </div>
+              ) : (
+                <button
+                  className="w-1/2 h-16 text-2xl mt-16 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                >
+                  RESET
+                </button>
+              )}
             </Form>
           </Formik>
         </div>

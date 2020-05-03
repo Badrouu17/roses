@@ -12,12 +12,8 @@ const UpdateData = () => {
   const { store, setStore } = useContext(storeContext);
 
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .max(15, "Must be 15 characters or less")
-      .required("This field is required"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("This field is required"),
+    name: Yup.string().max(15, "Must be 15 characters or less"),
+    email: Yup.string().email("Invalid email address"),
   });
 
   return (
@@ -25,8 +21,8 @@ const UpdateData = () => {
       <h2 className="heading-secondary ma-bt-md">Your account settings</h2>
       <Formik
         initialValues={{
-          name: "",
-          email: "",
+          name: store.user.name,
+          email: store.user.email,
         }}
         validationSchema={validationSchema}
         onSubmit={async (values, { setSubmitting }) => {

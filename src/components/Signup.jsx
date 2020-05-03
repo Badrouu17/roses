@@ -6,6 +6,7 @@ import ContainerSmall from "./ContainerSmall";
 import { Redirect } from "react-router-dom";
 import { signUp, storeTheUser } from "./../services/auth";
 import { toast } from "react-toastify";
+import Loader from "react-loader-spinner";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
@@ -110,12 +111,23 @@ const Signup = () => {
                 <ErrorMessage name="confirmPassword" />
               </div>
 
-              <button
-                className="w-1/2 h-16 text-2xl mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                {loading ? "SIGNUP . . ." : "SINGUP"}
-              </button>
+              {loading ? (
+                <div className="loader-small">
+                  <Loader
+                    type="Oval"
+                    color="#f6505d"
+                    height={30}
+                    width={30}
+                  ></Loader>
+                </div>
+              ) : (
+                <button
+                  className="w-1/2 h-16 text-2xl mt-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="submit"
+                >
+                  SINGUP
+                </button>
+              )}
             </Form>
           </Formik>
         </div>
