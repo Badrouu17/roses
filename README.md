@@ -6,6 +6,13 @@ built with ❤ using React , React-Hooks, React-Context-Api, React-Router, Sass 
 
 Uses Roses-Api : https://github.com/Badrouu17/roses-api
 
+## Try it
+
+Live demo : https://roses.netlify.app
+
+![alt text](https://res.cloudinary.com/batn05000/image/upload/v1588927595/1_zpoymr.png)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
