@@ -92,7 +92,7 @@ function App() {
       </div>
       <SmallDevices></SmallDevices>
       <div className="by">
-        <p>Built with ❤ by Badreddin laabed.</p>
+        <p>Built with ❤ by Badreddin labed.</p>
       </div>
     </React.Fragment>
   );
